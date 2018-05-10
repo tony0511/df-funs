@@ -1,0 +1,25 @@
+{
+  "name": "df-funs",
+  "version": "1.0.0",
+  "description": "Some common methods are summarized",
+  "main": "index.js",
+  "author": "tony0511 <zhuimengzhe91@163.com>",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "homepage": "https://github.com/tony0511/df-funs",
+  "bugs": "https://github.com/tony0511/df-funs/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tony0511/df-funs"
+  },
+  "keywords": [
+    "common",
+    "functions",
+    "tool"
+  ],
+  "license": "MIT"
+}
