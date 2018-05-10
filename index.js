@@ -473,4 +473,4 @@ const funs = {
   },
 };
 
-export default funs;
+module.exports = funs;

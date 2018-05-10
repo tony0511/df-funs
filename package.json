@@ -4,9 +4,6 @@
   "description": "Some common methods are summarized",
   "main": "index.js",
   "author": "tony0511 <zhuimengzhe91@163.com>",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
