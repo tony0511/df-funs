@@ -85,7 +85,7 @@ const ajax = {
 //  }
 
 // 15. 动画算子
-const pow = Math.pow;
+// const pow = Math.pow;
 const BACK_CONST = 1.70158;
 const Easing = {
   //  匀速运动
