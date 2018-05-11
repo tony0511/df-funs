@@ -471,6 +471,9 @@ const funs = {
       }
      });
   },
+  testNewVersion() {
+    return 'Nice, Victory!!'
+  },
 };
 
 module.exports = funs;
