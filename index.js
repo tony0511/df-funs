@@ -116,7 +116,7 @@ const Easing = {
   easeBothStrong: function (t) {
     return (t *= 2) < 1 ? .5 * t * t * t * t : .5 * (2 - (t -= 2) * t * t * t);
   },
-  //  
+  //
   easeOutQuart: function (t) {
     return -(Math.pow((t - 1), 4) - 1)
   },
@@ -195,7 +195,7 @@ Animator.prototype = {
 //    var distanceX = 1100;
 //    var distanceY = 540;
 //    animator = new Animator(2000, Easing.linear, function (e) {
-//      oDiv.style.transform = 
+//      oDiv.style.transform =
 //      `translate(${ Easing.linear(e) * distanceX }px,${ Easing.bounce(e) * distanceY }px)`;
 //    });
 //    animator.start(Infinity);
@@ -244,7 +244,7 @@ const funs = {
       }
       else{
         return true;
-      } 
+      }
     }
   },
 
@@ -257,7 +257,7 @@ const funs = {
         return i;
         break;
       }
-    }  
+    }
   },
 
   // 6.获取两个数的最小公倍数
@@ -269,7 +269,7 @@ const funs = {
         return i;
         break;
       }
-    }  
+    }
   },
 
   // 7.求 n!
@@ -388,7 +388,7 @@ const funs = {
 
   // 12.获取对象属性位置，0表示没有该属性，1表示该属性在当前对象中，2表示在对象的原型中
   getPropertyLocation: function (obj, propertyName) {
-    return !(propertyName in obj) ? 0 : obj.hasOwnProperty(propertyName) ? 1 : 2; 
+    return !(propertyName in obj) ? 0 : obj.hasOwnProperty(propertyName) ? 1 : 2;
   },
 
   ajax: ajax,
@@ -470,6 +470,27 @@ const funs = {
         $(wrap).css('top', top);
       }
      });
+  },
+  deepCopy: function (data) {
+    let result = { data: null };
+    const copyData = (obj, parent, key) => {
+      const type = Object.prototype.toString.call(obj).match(/ \w+(?=\])/g)[0].trim();
+      if (type === 'Object') {
+        parent[key] = { ...obj };
+        Object.keys(parent[key]).forEach(item_key => {
+          copyData(obj[item_key], parent[key], item_key);
+        });
+      } else if (type === 'Array') {
+        parent[key] = [...obj];
+        parent[key].forEach((item, index) => {
+          copyData(item, parent[key], index);
+        });
+      } else {
+        parent[key] = obj;
+      }
+    };
+    copyData(data, result, 'data');
+    return result.data;
   },
   testNewVersion() {
     return 'Nice, Victory!!'
