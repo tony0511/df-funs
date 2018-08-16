@@ -396,7 +396,7 @@ const funs = {
   Animator: Animator,
   Easing: Easing,
 
-  //  格式化344型
+  //  13.格式化344型
   to344: function (str) {
     let trimStr = ' ' + str.trim();
     let trimStrArr = [];
@@ -406,7 +406,7 @@ const funs = {
     return trimStrArr.join(' ').trim();
   },
 
-  //  重置在页面中心
+  // 14.重置在页面中心
   resetPosition: function (dom) {
     let boxX = $(dom).outerWidth();
     let boxY = $(dom).outerHeight();
@@ -426,7 +426,7 @@ const funs = {
     $(dom).css('top', (winH - boxY) / 2);
   },
 
-  //  添加移动事件
+  //  15.添加移动事件
   boxMove: function (wrap, target) {
     let move = false;
     let startX = 0;
@@ -471,6 +471,7 @@ const funs = {
       }
      });
   },
+  // 16.深拷贝
   deepCopy: function (data) {
     let result = { data: null };
     const copyData = (obj, parent, key) => {
@@ -491,6 +492,27 @@ const funs = {
     };
     copyData(data, result, 'data');
     return result.data;
+  },
+  // 格式化树结构
+  formatTree: function (list, parentProp, nameProp, childrenProp, endNeedChildren) {
+    const ln = list.length;
+    const result = [];
+    list.forEach(item => {
+      endNeedChildren && (item[childrenProp] || (item[childrenProp] = []));
+      if (item[parentProp] === null) {
+        result.push(item);
+      } else {
+        for (let i = 0; i < ln; i++) {
+          const ele = list[i];
+          if (ele[nameProp] === item[parentProp]) {
+            ele[childrenProp] || (ele[childrenProp] = []);
+            ele[childrenProp].push(item);
+            break;
+          }
+        }
+      }
+    });
+    return result;
   },
   testNewVersion() {
     return 'Nice, Victory!!'
